@@ -1,9 +1,9 @@
 import axios from "axios"; 
 
 export default async function pokeApi() {
-  const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=10')
+  const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=50')
+  console.log(response);
   return response; 
-
 }
 
 // response.map((x) => {
