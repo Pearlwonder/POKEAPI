@@ -1,6 +1,6 @@
 - ----> Welcome to my POKEDEX <---- - 
 
-- The purpose of this application is to sort through the POKEDEX. 
+- The purpose of this VITE application is to sort through the POKEDEX.
 
 - Each button signifies the Pokemon Type.
 
