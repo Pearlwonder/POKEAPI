@@ -2,35 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="images/pika.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POKE DEX</title>
+    <title>PokéDex</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
   </head>
   <body>
     <div id="app"></div>
-    <h1>Sort Thru POKEDEX</h1>
+    <h1>
+      <img src="images/Pokédex_logo.png" >
+    </h1>
     <div id="btn-div">
       <button id="fire"
-      onclick="document.getElementById('fire').style.color='red'">Fire</button>
+      onclick="document.getElementById('fire').style.color='#DC143C'">Fire</button>
       <button id="water"
-      onclick="document.getElementById('water').style.color='blue'">Water</button>
+      onclick="document.getElementById('water').style.color='#1E90FF'">Water</button>
       <button id="grass"
-      onclick="document.getElementById('grass').style.color='green'">Grass</button>
-      <button id="flying">Flying</button>
+      onclick="document.getElementById('grass').style.color='#008080'">Grass</button>
+      <button 
+      id="flying"
+      onclick="document.getElementById('flying').style.color='#FF8C00'"
+      >Flying</button>
       <button id="poison"
-      onclick="document.getElementById('poison').style.color='purple'">Poison</button>
+      onclick="document.getElementById('poison').style.color='#8B008B'">Poison</button>
       <button id="bug"
-      onclick="document.getElementById('bug').style.color='yellow'">Bug</button>
-      <button id="normal">Normal</button>
+      onclick="document.getElementById('bug').style.color='#9ACD32'">Bug</button>
+      <button id="normal"
+      onclick="document.getElementById('normal').style.color='#66cDAA'">
+      Normal</button>
       <button id="electric"
-      onclick="document.getElementById('electric').style.color='gold'">Electric</button>
+      onclick="document.getElementById('electric').style.color='#FFD700'">Electric</button>
       <button id="fairy"
-      onclick="document.getElementById('fairy').style.color='pink'">Fairy</button>
+      onclick="document.getElementById('fairy').style.color='#FF1493'">Fairy</button>
       <button id="ground"
-      onclick="document.getElementById('ground').style.color='brown'">Ground
+      onclick="document.getElementById('ground').style.color='#CD853F'">Ground
       </button>
-      <button id="show-all">Show All</button>
+      <button id="show-all"
+      onclick="document.getElementById('show-all').style.color='#00FF7F'">
+      Show All</button>
+    </button>
+    <i class="bi bi-moon" id="tDark"></i>
+    <!-- <i class="bi bi-brightness-high-fill" id="tDark"></i> -->
     </div>
 <!-- 
     <div id="names">

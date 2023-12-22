@@ -1,7 +1,7 @@
 import './style.css'
 import axios from 'axios';
 import pokeApi from './api-call';
-// import { displayImg } from './display-data';
+import dark from './dark-mode';
 
 
 const data = await pokeApi(); 
@@ -28,9 +28,6 @@ const div = document.getElementById('names')
     div2.append(name);
     div.append(div2);
 })
-
-// Why is this UNDEFINED? 
-console.log(names);
 
 //Gives me the images of the Pokemon Img's 
  const arrayOfPromises = dataName.map(async (pokeObj) => {
@@ -75,10 +72,8 @@ const allNames = newImgData.map((x) => x.data.name) ;
 console.log(allNames);
 console.log(allSkills)
 // This extracts all desired moves into a single array. 
-const bigPokeData = newImgData.map((x) => x.data)
 
-console.log(newImgData); 
-console.log(bigPokeData);
+
 
 // Locks in each skill and puts it into a variable. 
 // const grassSkill = allDataSkills.filter((x) => x === "grass")
@@ -87,6 +82,12 @@ console.log(bigPokeData);
 // const WaterSkill = allDataSkills.filter((x) => x === "water");
 // const flyingSkill = allDataSkills.filter((x) => x === "flying");
 // const bugSkill = allDataSkills.filter((x) => x === "bug");
+
+const bigPokeData = newImgData.map((x) => x.data)
+
+bigPokeData.sort((a,b) => a.id - b.id)
+console.log(bigPokeData);
+
 
 const all = bigPokeData.filter((x) => x)
 const grass = bigPokeData.filter((x) => x.types[0].type.name === "grass");
@@ -102,12 +103,13 @@ const flying = bigPokeData.filter((x) => {
     return x.types[1].type.name === "flying"
   }
 })
+const poison = bigPokeData.filter((x) => {
+  if(x.types.length > 1) {
+    return x.types[1].type.name === "poison"
+  }
+})
 
-
-console.log(flying);;
 //Take that array and use it as a parameter that displays that array. 
-
-
 
 function displayPoke(filterPokeArr) {
   const div = document.getElementById('Poke')
@@ -115,22 +117,84 @@ function displayPoke(filterPokeArr) {
   filterPokeArr.map((x) => {
     const div2 = document.createElement('div');
     const p = document.createElement('p');
+    // If statement checking the type .. will change color of P element. 
+    
+    switch(filterPokeArr) {
+      case grass:
+        p.innerText = p.style.color='#008080';
+        div2.style.border="1px dotted #008080"
+        document.body.append(p);
+        break; 
+      case fire: 
+        p.innerText = p.style.color='#DC143C';
+        div2.style.border="1px dotted #DC143C"
+        document.body.append(p);
+         break;
+      case water:
+        p.innerText = p.style.color='#1E90FF';
+        div2.style.border="1px dotted #1E90FF"
+        document.body.append(p);
+         break;
+      case flying:
+       p.innerText = p.style.color='#FF8C00';
+       div2.style.border="1px dotted #FF8C00"
+       document.body.append(p);
+        break;
+      case poison:
+        p.innerText = p.style.color='#8B008B';
+        div2.style.border="1px dotted #8B008B"
+        document.body.append(p);
+        break;  
+      case bug:
+        p.innerText = p.style.color='#9ACD32';
+        div2.style.border="1px dotted #9ACD32"
+        document.body.append(p);          
+         break;
+       case normal:
+        p.innerText = p.style.color='#66cDAA';
+        div2.style.border="1px dotted #66cDAA"
+        document.body.append(p);
+        break;
+       case electric:
+        p.innerText = p.style.color='#FFD700';
+        div2.style.border="1px dotted #FFD700"
+        document.body.append(p);
+        break;
+       case fairy:
+        p.innerText = p.style.color='#FF1493';
+        div2.style.border="1px dotted #FF1493"
+        document.body.append(p);
+        break;   
+       case ground:
+         p.innerText = p.style.color='#CD853F';
+         div2.style.border="1px dotted #CD853F"
+         document.body.append(p);
+         break;
+       case all:
+         p.innerText = p.style.color="#00FF7F";
+         div2.style.border="1px dotted #1E90FF"
+         document.body.append(p);
+         break;
+      default:
+        p.innerText = p.style.color="black";
+        document.body.append(p);
+        break;
+    }
+
+  
     p.innerText = x.name;
     const urls = document.createElement('img');
     div2.className = "poke-imgs";
     urls.src = x.sprites.front_default;
     div2.append(p, urls);
     div.append(div2);
+
   }) 
-  console.log(filterPokeArr)
-
-  
-
-
-  // Use the map method to display each Pokemon's data. 
 }
 
-displayPoke(grass)
+
+
+// On Click Event Listener 
 
 document.getElementById('normal').addEventListener("click", function() {
   displayPoke(normal); 
@@ -173,37 +237,24 @@ document.getElementById('show-all').addEventListener("click", function() {
   displayPoke(all); 
 })
 
+document.getElementById('poison').addEventListener("click", function() {
+  displayPoke(poison); 
+})
+
+dark()
+
+
 
 
 console.log(bigPokeData);
-
 console.log(grass);
 console.log(fire);
 console.log(water);
 console.log(bug); 
 console.log(flying);
-
 console.log(allSkills);
-
 console.log(allGrassFlavors);
-
-
-
 console.log(newImgData);
 
-// displayImg(bulbImg);
-
-// const bulb = await img(); 
-// console.log(bulb);
-
-// const bulbImg = bulb.data.sprites.front_default;
-// console.log(bulbImg);
-
-// const imgs = document.createElement('img');
-// imgs.src = bulbImg;
-// document.body.append(imgs);
 
 
-
-// Instead of name and poke you'll hav 1 div 
-// 
